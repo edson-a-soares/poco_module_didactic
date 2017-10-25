@@ -1,0 +1,12 @@
+# JetBrains CLion IDE files
+/.idea/
+/cmake-build-debug/
+
+# Vagrant files
+/.vagrant/
+
+# Puppet files
+/Provision/Puppet/librarian/modules/
+/Provision/Puppet/librarian/Puppetfile.lock
+/Provision/Puppet/librarian/.librarian/
+/Provision/Puppet/librarian/.tmp/
