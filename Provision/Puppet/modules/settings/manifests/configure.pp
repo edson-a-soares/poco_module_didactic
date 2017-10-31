@@ -37,19 +37,19 @@ class settings::configure {
     }
 
     package { "libcurl4-gnutls-dev":
-      ensure	=> installed,
+        ensure	=> installed,
     }
 
     package { "libarchive-dev":
-      ensure	=> installed,
+        ensure	=> installed,
     }
 
     package { "libreadline6-dev":
-      ensure	=> installed,
+        ensure	=> installed,
     }
 
     package { "libncurses-dev":
-      ensure	=> installed,
+        ensure	=> installed,
     }
 
 }

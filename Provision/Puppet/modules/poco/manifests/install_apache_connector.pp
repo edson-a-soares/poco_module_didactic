@@ -50,11 +50,11 @@ class poco::install_apache_connector {
     }
 
     file { "/etc/apache2/mods-available/poco_module.load":
-      ensure	      => file,
-      source	      => "puppet:///modules/poco/mods-available/poco_module.load",
-      subscribe     => Exec[ "install-poco-module" ],
-      group	        => root,
-      owner	        => root
+        ensure	      => file,
+        source	      => "puppet:///modules/poco/mods-available/poco_module.load",
+        subscribe     => Exec[ "install-poco-module" ],
+        group	        => root,
+        owner	        => root
     }
 
 }
