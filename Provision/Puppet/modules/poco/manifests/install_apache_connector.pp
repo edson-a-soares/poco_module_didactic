@@ -9,6 +9,7 @@ class poco::install_apache_connector {
     $poco_repository_url = "https://github.com/pocoproject/poco.git"
 
     exec { "clone-poco":
+        cwd     => "$settings::configure::home_directory",
         command => "git clone $poco_repository_url $poco_repository_alias",
         unless  => "test -d $settings::configure::home_directory/$poco_repository_alias",
         timeout => 0,
@@ -51,14 +52,6 @@ class poco::install_apache_connector {
     file { "/etc/apache2/mods-available/poco_module.load":
       ensure	      => file,
       source	      => "puppet:///modules/poco/mods-available/poco_module.load",
-      subscribe     => Exec[ "install-poco-module" ],
-      group	        => root,
-      owner	        => root
-    }
-
-    file { "/etc/apache2/mods-available/poco_module.conf":
-      ensure	      => file,
-      source	      => "puppet:///modules/poco/mods-available/poco_module.conf",
       subscribe     => Exec[ "install-poco-module" ],
       group	        => root,
       owner	        => root

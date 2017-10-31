@@ -1,8 +1,14 @@
 class settings::configure {
 
-    $home_group     = "vagrant"
-    $home_username  = "vagrant"
+    $home_group     = "ubuntu"
+    $home_username  = "ubuntu"
     $home_directory = "/home/$home_username"
+
+    exec { "create-homeuser":
+        command => "sudo adduser $instance_username",
+        path    => [ "/usr/bin", "/bin" ],
+        unless  => "test -d $home_directory"
+    }
 
     file { "/etc/profile.d/append-usr-libraries-to-library-path.sh":
         ensure => present,
