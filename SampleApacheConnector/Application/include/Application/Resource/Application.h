@@ -20,23 +20,19 @@
 #ifndef Sample_Apache_Connector_Application_Resource_Application_INCLUDED
 #define Sample_Apache_Connector_Application_Resource_Application_INCLUDED
 
-#include "Poco/Net/HTTPServerRequest.h"
-#include "Poco/Net/HTTPServerResponse.h"
-#include "Poco/Net/HTTPRequestHandler.h"
+#include "Application/Resource/AbstractResource.h"
 
 namespace Application {
 namespace Resource {
 
 
-    class Application : public Poco::Net::HTTPRequestHandler
+    class Application : public AbstractResource
     {
     public:
         Application();
 
-        void handleRequest(Poco::Net::HTTPServerRequest & request, Poco::Net::HTTPServerResponse & response);
-
-    private:
-        void handle_get(Poco::Net::HTTPServerRequest & request, Poco::Net::HTTPServerResponse & response);
+    protected:
+        void handle_get(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse &);
 
     };
 

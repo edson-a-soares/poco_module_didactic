@@ -17,30 +17,24 @@
  *     Edson Araújo Soares
  */
 
-#ifndef Sample_Apache_Connector_Application_Factory_Factory_INCLUDED
-#define Sample_Apache_Connector_Application_Factory_Factory_INCLUDED
+#ifndef Sample_Apache_Connector_Application_Configuration_Web_CORS_Configuration_INCLUDED
+#define Sample_Apache_Connector_Application_Configuration_Web_CORS_Configuration_INCLUDED
 
-#include <string>
+#include "Application/Configuration/ICORSConfiguration.h"
 
 namespace Application {
-namespace Resource {
-namespace Factory {
+namespace Configuration {
 
-
-        class IFactory;
-        class Factory
+        class WebCORSConfiguration : public ICORSConfiguration
         {
         public:
-            static IFactory * createResourceFactory(const std::string &);
-
-        private:
-            Factory();
+            WebCORSConfiguration();
+            std::map<std::string, std::string> getCORSHeaders();
 
         };
 
     }
 
-
-} }
+}
 
 #endif

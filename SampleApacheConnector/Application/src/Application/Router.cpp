@@ -4,6 +4,9 @@
 #include "Poco/Net/HTTPServerRequest.h"
 #include "Application/Resource/RouteNotFound.h"
 #include "Application/Resource/Factory/Factory.h"
+#include "Application/Configuration/WebCORSConfiguration.h"
+
+#include <iostream>
 
 namespace Application
 {
@@ -28,12 +31,15 @@ namespace Application
 
         Poco::URI uri = Poco::URI(route);
         auto factoryIndex = routingTable.find(uri.getPath());
-        if ( factoryIndex == routingTable.end() ) {
-            return new Application::Resource::RouteNotFound();
-        }
-
         Application::Resource::Factory::IFactory * factory =
-            Application::Resource::Factory::Factory::createResourceFactory(factoryIndex->second);
+            Application::Resource::Factory::Factory::createResourceFactory(
+                "Application::Resource::Factory::RouteNotFoundFactory"
+            );
+
+        if ( factoryIndex != routingTable.end() ) {
+            delete factory;
+            factory = Application::Resource::Factory::Factory::createResourceFactory(factoryIndex->second);
+        }
 
         return factory->createResource();
 

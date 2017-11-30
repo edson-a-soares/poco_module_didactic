@@ -20,17 +20,17 @@
 #ifndef Sample_Apache_Connector_Application_Resource_Route_Not_Found_INCLUDED
 #define Sample_Apache_Connector_Application_Resource_Route_Not_Found_INCLUDED
 
-#include "Poco/Net/HTTPServerRequest.h"
-#include "Poco/Net/HTTPServerResponse.h"
-#include "Poco/Net/HTTPRequestHandler.h"
+#include "Application/Resource/AbstractResource.h"
 
 namespace Application {
 namespace Resource {
 
 
-    class RouteNotFound : public Poco::Net::HTTPRequestHandler
+    class RouteNotFound : public AbstractResource
     {
     public:
+        RouteNotFound();
+
         void handleRequest(Poco::Net::HTTPServerRequest & request, Poco::Net::HTTPServerResponse & response);
 
     };

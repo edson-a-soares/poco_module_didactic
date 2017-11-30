@@ -17,28 +17,22 @@
  *     Edson Araújo Soares
  */
 
-#ifndef Sample_Apache_Connector_Application_Factory_Factory_INCLUDED
-#define Sample_Apache_Connector_Application_Factory_Factory_INCLUDED
+#ifndef Sample_Apache_Connector_Application_Configuration_ICORS_Configuration_INCLUDED
+#define Sample_Apache_Connector_Application_Configuration_ICORS_Configuration_INCLUDED
 
+#include <map>
 #include <string>
 
 namespace Application {
-namespace Resource {
-namespace Factory {
+namespace Configuration {
 
 
-        class IFactory;
-        class Factory
-        {
-        public:
-            static IFactory * createResourceFactory(const std::string &);
+    class ICORSConfiguration
+    {
+    public:
+        virtual std::map<std::string, std::string> getCORSHeaders() = 0;
 
-        private:
-            Factory();
-
-        };
-
-    }
+    };
 
 
 } }

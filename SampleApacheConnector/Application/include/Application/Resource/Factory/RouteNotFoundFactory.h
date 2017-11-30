@@ -17,30 +17,24 @@
  *     Edson Araújo Soares
  */
 
-#ifndef Sample_Apache_Connector_Application_Factory_Factory_INCLUDED
-#define Sample_Apache_Connector_Application_Factory_Factory_INCLUDED
+#ifndef Sample_Apache_Connector_Application_Factory_Route_Not_Found_Factory_INCLUDED
+#define Sample_Apache_Connector_Application_Factory_Route_Not_Found_Factory_INCLUDED
 
-#include <string>
+#include "Application/Resource/Factory/IFactory.h"
 
 namespace Application {
 namespace Resource {
 namespace Factory {
 
 
-        class IFactory;
-        class Factory
-        {
-        public:
-            static IFactory * createResourceFactory(const std::string &);
+    class RouteNotFoundFactory : public IFactory
+    {
+    public:
+        Poco::Net::HTTPRequestHandler * createResource();
 
-        private:
-            Factory();
-
-        };
-
-    }
+    };
 
 
-} }
+} } }
 
 #endif
