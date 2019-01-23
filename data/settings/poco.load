@@ -1,0 +1,14 @@
+# Load the Apache poco_module dependencies
+LoadFile /usr/local/lib/libPocoFoundation.so
+LoadFile /usr/local/lib/libPocoJSON.so
+LoadFile /usr/local/lib/libPocoUtil.so
+LoadFile /usr/local/lib/libPocoNet.so
+
+# Path to the binary of the module
+LoadModule poco_module /usr/lib/apache2/modules/mod_poco.so
+
+# Configure the application to run over Apache
+AddPocoRequestHandler Application::Router /usr/local/lib/SampleApacheConnector/libApplication.so /
+
+
+
