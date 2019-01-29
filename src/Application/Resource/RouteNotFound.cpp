@@ -1,5 +1,5 @@
 #include "Application/Resource/RouteNotFound.h"
-#include "Application/Handling/ErrorParser.h"
+#include "Application/Handling/ErrorJSONParser.h"
 
 namespace Application {
 namespace Resource {
@@ -16,7 +16,7 @@ namespace Resource {
 
         configureCORS(response);
         response.setContentType("application/json; charset=utf-8");
-        Handling::ErrorParser error = Handling::ErrorParser(request.getHost());
+        Handling::ErrorJSONParser error = Handling::ErrorJSONParser(request.getHost());
 
         std::ostream & outputStream = response.send();
         outputStream << error.toJson("404", request.getURI(),

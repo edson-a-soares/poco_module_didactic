@@ -1,24 +1,23 @@
 #include "Poco/JSON/Object.h"
-#include "Application/Handling/ErrorParser.h"
+#include "Application/Handling/ErrorJSONParser.h"
 
 namespace Application {
 namespace Handling {
 
 
-    ErrorParser::ErrorParser()
+    ErrorJSONParser::ErrorJSONParser()
         : host("localhost:8080")
-    { }
+    {}
 
-    ErrorParser::ErrorParser(const std::string & url)
+    ErrorJSONParser::ErrorJSONParser(const std::string & url)
         : host(url)
-    { }
+    {}
 
-    std::string ErrorParser::toJson(
+    std::string ErrorJSONParser::toJson(
         const std::string & code,
         const std::string & pointer,
         const std::string & type,
-        const std::string & description
-    )
+        const std::string & description)
     {
 
         // { ... }

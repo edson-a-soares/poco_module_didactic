@@ -17,38 +17,30 @@
  *     Edson Araújo Soares
  */
 
-#ifndef Application_Container_INCLUDED
-#define Application_Container_INCLUDED
+#ifndef Application_Handling_ApplicationJSONParser_INCLUDED
+#define Application_Handling_ApplicationJSONParser_INCLUDED
 
 #include <string>
 
-#include "Poco/Util/ServerApplication.h"
-#include "Poco/Net/HTTPRequestHandlerFactory.h"
-
 namespace Application {
+namespace Handling {
 
 
-    class Container : public Poco::Util::ServerApplication
+    class ApplicationJSONParser
     {
     public:
-        Container();
-        ~Container() override;
+        ApplicationJSONParser();
+        explicit ApplicationJSONParser(const std::string &);
 
-        void setPort(int);
-        Poco::Net::HTTPRequestHandlerFactory * getRouter();
-        void setRouter(Poco::Net::HTTPRequestHandlerFactory *);
-
-    protected:
-        int main(const std::vector<std::string> & args) override;
+        std::string toJson(const std::string &) const;
+        std::string getUrl(const std::string &) const;
 
     private:
-        int port;
-        std::string endpoint;
-        Poco::Net::HTTPRequestHandlerFactory * router;
+        std::string baseUrl;
 
     };
 
 
-}
+} }
 
 #endif

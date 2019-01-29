@@ -1,5 +1,5 @@
 #include "Application/Resource/Application.h"
-#include "Application/Handling/ApplicationParser.h"
+#include "Application/Handling/ApplicationJSONParser.h"
 
 namespace Application {
 namespace Resource {
@@ -15,7 +15,7 @@ namespace Resource {
         std::ostream & outputStream = response.send();
         response.setStatus(Poco::Net::HTTPResponse::HTTP_OK);
 
-        Handling::ApplicationParser parser = Handling::ApplicationParser(request.getHost());
+        Handling::ApplicationJSONParser parser = Handling::ApplicationJSONParser(request.getHost());
         outputStream << parser.toJson("1.0");
         outputStream.flush();
 

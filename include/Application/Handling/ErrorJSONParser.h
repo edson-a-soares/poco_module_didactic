@@ -17,8 +17,8 @@
  *     Edson Araújo Soares
  */
 
-#ifndef Application_Handling_ApplicationParser_INCLUDED
-#define Application_Handling_ApplicationParser_INCLUDED
+#ifndef Application_Handling_ErrorJSONParser_INCLUDED
+#define Application_Handling_ErrorJSONParser_INCLUDED
 
 #include <string>
 
@@ -26,17 +26,21 @@ namespace Application {
 namespace Handling {
 
 
-    class ApplicationParser
+    class ErrorJSONParser
     {
     public:
-        ApplicationParser();
-        explicit ApplicationParser(const std::string &);
+        ErrorJSONParser();
+        explicit ErrorJSONParser(const std::string &);
 
-        std::string toJson(const std::string &) const;
-        std::string getUrl(const std::string &) const;
+        std::string toJson(
+            const std::string &,
+            const std::string &,
+            const std::string &,
+            const std::string &
+        );
 
     private:
-        std::string baseUrl;
+        std::string host;
 
     };
 

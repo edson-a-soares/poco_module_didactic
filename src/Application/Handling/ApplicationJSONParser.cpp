@@ -1,24 +1,24 @@
 #include "Poco/JSON/Object.h"
-#include "Application/Handling/ApplicationParser.h"
+#include "Application/Handling/ApplicationJSONParser.h"
 
 namespace Application {
 namespace Handling {
 
 
-    ApplicationParser::ApplicationParser()
+    ApplicationJSONParser::ApplicationJSONParser()
         : baseUrl("localhost:8080")
     {}
 
-    ApplicationParser::ApplicationParser(const std::string & url)
+    ApplicationJSONParser::ApplicationJSONParser(const std::string & url)
         : baseUrl(url)
     {}
 
-    std::string ApplicationParser::getUrl(const std::string & path) const
+    std::string ApplicationJSONParser::getUrl(const std::string & path) const
     {
         return "http://" + baseUrl + path;
     }
 
-    std::string ApplicationParser::toJson(const std::string & version) const
+    std::string ApplicationJSONParser::toJson(const std::string & version) const
     {
 
         Poco::JSON::Object::Ptr root  = new Poco::JSON::Object();
