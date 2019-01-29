@@ -40,7 +40,7 @@ RUN curl -fsSL "${CMAKE_DOWNLOAD_URL}" -o /tmp/cmake.tar.gz \
 # The variable expansion technique used in this variable definition allows passes arguments
 # from the command line and persist them in the final image by leveraging the ENV instruction.
 ARG APPLICATION_ENVIRONMENT
-ENV APPLICATION_ENVIRONMENT=${APPLICATION_ENVIRONMENT:-homologation}
+ENV APPLICATION_ENVIRONMENT=${APPLICATION_ENVIRONMENT:-development}
 
 # It sets the build-time parameters default values
 ARG CMAKE_BUILD_TYPE=Release

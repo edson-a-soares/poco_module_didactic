@@ -8,7 +8,4 @@ LoadFile /usr/local/lib/libPocoNet.so
 LoadModule poco_module /usr/lib/apache2/modules/mod_poco.so
 
 # Configure the application to run over Apache
-AddPocoRequestHandler Application::Router /usr/local/lib/SampleApacheConnector/libApplication.so /
-
-
-
+AddPocoRequestHandler Application::Router /usr/local/lib/apache_application.so /
