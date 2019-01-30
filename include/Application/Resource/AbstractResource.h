@@ -33,6 +33,7 @@ namespace Resource {
     {
     public:
         AbstractResource();
+        ~AbstractResource() override;
 
         void setCORSConfiguration(Configuration::CORSConfigurationInterface *);
         void handleRequest(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse &) override;

@@ -30,6 +30,8 @@ namespace Configuration {
     class CORSConfigurationInterface
     {
     public:
+    	virtual ~CORSConfigurationInterface() = default;
+
         virtual std::map<std::string, std::string> getCORSHeaders() = 0;
 
     };

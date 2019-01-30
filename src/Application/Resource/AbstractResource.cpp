@@ -8,6 +8,11 @@ namespace Resource {
         : corsConfiguration (nullptr)
     {}
 
+    AbstractResource::~AbstractResource()
+    {
+        delete corsConfiguration;
+    }
+
     void AbstractResource::handleRequest(Poco::Net::HTTPServerRequest & request, Poco::Net::HTTPServerResponse & response)
     {
 

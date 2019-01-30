@@ -12,7 +12,7 @@ namespace Factory {
     Poco::Net::HTTPRequestHandler * RouteNotFoundFactory::createResource()
     {
 
-        auto resource = new Application::Resource::RouteNotFound();
+        auto resource = new Resource::RouteNotFound();
 
         auto corsConfiguration = std::make_shared<Configuration::WebCORSConfiguration>();
         resource->setCORSConfiguration(corsConfiguration.get());
