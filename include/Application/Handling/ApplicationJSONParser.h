@@ -30,13 +30,14 @@ namespace Handling {
     {
     public:
         ApplicationJSONParser();
-        explicit ApplicationJSONParser(const std::string &);
+        explicit ApplicationJSONParser(const std::string & baseUrl);
 
-        std::string toJson(const std::string &) const;
-        std::string getUrl(const std::string &) const;
+        std::string toJson(const std::string & version, const std::string & environment) const;
 
     private:
-        std::string baseUrl;
+        std::string _baseUrl;
+
+        std::string getUrl(const std::string & path) const;
 
     };
 

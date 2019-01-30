@@ -6,19 +6,19 @@ namespace Handling {
 
 
     ApplicationJSONParser::ApplicationJSONParser()
-        : baseUrl("localhost:8080")
+        : _baseUrl("localhost:8080")
     {}
 
-    ApplicationJSONParser::ApplicationJSONParser(const std::string & url)
-        : baseUrl(url)
+    ApplicationJSONParser::ApplicationJSONParser(const std::string & baseUrl)
+        : _baseUrl(baseUrl)
     {}
 
     std::string ApplicationJSONParser::getUrl(const std::string & path) const
     {
-        return "http://" + baseUrl + path;
+        return "http://" + _baseUrl + path;
     }
 
-    std::string ApplicationJSONParser::toJson(const std::string & version) const
+    std::string ApplicationJSONParser::toJson(const std::string & version, const std::string & environment) const
     {
 
         Poco::JSON::Object::Ptr root  = new Poco::JSON::Object();
@@ -30,6 +30,7 @@ namespace Handling {
 
         Poco::JSON::Object::Ptr meta = new Poco::JSON::Object();
         meta->set("version", version);
+        meta->set("environment", environment);
 
         Poco::JSON::Array::Ptr lang  = new Poco::JSON::Array();
 

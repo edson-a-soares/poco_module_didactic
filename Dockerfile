@@ -39,8 +39,10 @@ RUN curl -fsSL "${CMAKE_DOWNLOAD_URL}" -o /tmp/cmake.tar.gz \
 
 # The variable expansion technique used in this variable definition allows passes arguments
 # from the command line and persist them in the final image by leveraging the ENV instruction.
+ARG APPLICATION_VERSION
 ARG APPLICATION_ENVIRONMENT
-ENV APPLICATION_ENVIRONMENT=${APPLICATION_ENVIRONMENT:-development}
+ENV APPLICATION_VERSION=${APPLICATION_VERSION:-1.0}
+ENV APPLICATION_ENVIRONMENT=${APPLICATION_ENVIRONMENT:-production}
 
 # It sets the build-time parameters default values
 ARG CMAKE_BUILD_TYPE=Release
@@ -61,8 +63,7 @@ COPY scripts/apache-setup-for-dockerfile.sh /tmp/apache-setup-for-dockerfile.sh
 
 RUN chmod +x /tmp/apache-setup-for-dockerfile.sh \
     && /usr/sbin/apache2ctl stop \
-    && /tmp/apache-setup-for-dockerfile.sh $APPLICATION_ENVIRONMENT \
+    && /tmp/apache-setup-for-dockerfile.sh $APPLICATION_VERSION  $APPLICATION_ENVIRONMENT \
     && rm /tmp/apache-setup-for-dockerfile.sh
 
 CMD ["/usr/sbin/apache2ctl", "-DFOREGROUND"]
-

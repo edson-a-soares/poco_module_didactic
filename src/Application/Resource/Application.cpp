@@ -1,3 +1,4 @@
+#include "Poco/Environment.h"
 #include "Application/Resource/Application.h"
 #include "Application/Handling/ApplicationJSONParser.h"
 
@@ -16,7 +17,10 @@ namespace Resource {
         response.setStatus(Poco::Net::HTTPResponse::HTTP_OK);
 
         Handling::ApplicationJSONParser parser = Handling::ApplicationJSONParser(request.getHost());
-        outputStream << parser.toJson("1.0");
+        outputStream << parser.toJson(
+            Poco::Environment::get("APPLICATION_VERSION"),
+            Poco::Environment::get("APPLICATION_ENVIRONMENT")
+        );
         outputStream.flush();
 
     }
