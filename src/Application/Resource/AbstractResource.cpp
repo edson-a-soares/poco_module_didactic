@@ -30,7 +30,7 @@ namespace Resource {
 
     }
 
-    void AbstractResource::setCORSConfiguration(Configuration::ICORSConfiguration * configuration)
+    void AbstractResource::setCORSConfiguration(Configuration::CORSConfigurationInterface * configuration)
     {
         corsConfiguration = configuration;
     }

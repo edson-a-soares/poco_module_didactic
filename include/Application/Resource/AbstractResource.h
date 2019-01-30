@@ -23,7 +23,7 @@
 #include "Poco/Net/HTTPServerRequest.h"
 #include "Poco/Net/HTTPServerResponse.h"
 #include "Poco/Net/HTTPRequestHandler.h"
-#include "Application/Configuration/ICORSConfiguration.h"
+#include "Application/Configuration/CORSConfigurationInterface.h"
 
 namespace Application {
 namespace Resource {
@@ -34,7 +34,7 @@ namespace Resource {
     public:
         AbstractResource();
 
-        void setCORSConfiguration(Configuration::ICORSConfiguration *);
+        void setCORSConfiguration(Configuration::CORSConfigurationInterface *);
         void handleRequest(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse &) override;
 
     protected:
@@ -47,7 +47,7 @@ namespace Resource {
         virtual void handle_options(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse &);
 
     private:
-        Configuration::ICORSConfiguration * corsConfiguration;
+        Configuration::CORSConfigurationInterface * corsConfiguration;
 
     };
 

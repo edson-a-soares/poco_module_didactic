@@ -11,7 +11,7 @@ namespace Factory {
     {
 
         FactoryInterface * factory = nullptr;
-        if ( resourceName == "Application::Resource::AbstractFactory::ApplicationFactory" )
+        if ( resourceName == "Application::Resource::Application" )
             factory = new ApplicationFactory();
 
         if ( factory == nullptr )

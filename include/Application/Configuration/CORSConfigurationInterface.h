@@ -17,8 +17,8 @@
  *     Edson Araújo Soares
  */
 
-#ifndef Sample_Apache_Connector_Application_Configuration_ICORS_Configuration_INCLUDED
-#define Sample_Apache_Connector_Application_Configuration_ICORS_Configuration_INCLUDED
+#ifndef Application_Configuration_CORSConfigurationInterface_INCLUDED
+#define Application_Configuration_CORSConfigurationInterface_INCLUDED
 
 #include <map>
 #include <string>
@@ -27,7 +27,7 @@ namespace Application {
 namespace Configuration {
 
 
-    class ICORSConfiguration
+    class CORSConfigurationInterface
     {
     public:
         virtual std::map<std::string, std::string> getCORSHeaders() = 0;

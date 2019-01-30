@@ -17,19 +17,20 @@
  *     Edson Araújo Soares
  */
 
-#ifndef Sample_Apache_Connector_Application_Configuration_Web_CORS_Configuration_INCLUDED
-#define Sample_Apache_Connector_Application_Configuration_Web_CORS_Configuration_INCLUDED
+#ifndef Application_Configuration_WebCORSConfiguration_INCLUDED
+#define Application_Configuration_WebCORSConfiguration_INCLUDED
 
-#include "ICORSConfiguration.h"
+#include "Application/Configuration/CORSConfigurationInterface.h"
 
 namespace Application {
 namespace Configuration {
 
-        class WebCORSConfiguration : public ICORSConfiguration
+        class WebCORSConfiguration : public CORSConfigurationInterface
         {
         public:
-            WebCORSConfiguration();
-            std::map<std::string, std::string> getCORSHeaders();
+            WebCORSConfiguration() = default;
+
+            std::map<std::string, std::string> getCORSHeaders() override;
 
         };
 

@@ -10,7 +10,7 @@ namespace Application {
 
     Router::Router()
     {
-        addRoute("/", "Application::Resource::AbstractFactory::ApplicationFactory");
+        addRoute("/", "Application::Resource::Application");
     }
 
     Poco::Net::HTTPRequestHandler * Router::createRequestHandler(const Poco::Net::HTTPServerRequest & request)
@@ -21,20 +21,11 @@ namespace Application {
     Poco::Net::HTTPRequestHandler * Router::getResource(const std::string & route)
     {
 
-        Poco::URI uri = Poco::URI(route);
-        auto factoryIndex = routingTable.find(uri.getPath());
+        Poco::URI uri        = Poco::URI(route);
+        auto factoryIndex    = routingTable.find(uri.getPath());
+        auto resourceFactory = Resource::Factory::AbstractFactory::createResourceFactory(factoryIndex->second);
 
-        Application::Resource::Factory::FactoryInterface * factory =
-            Application::Resource::Factory::AbstractFactory::createResourceFactory(
-                "Application::Resource::AbstractFactory::RouteNotFoundFactory"
-            );
-
-        if ( factoryIndex != routingTable.end() ) {
-            delete factory;
-            factory = Application::Resource::Factory::AbstractFactory::createResourceFactory(factoryIndex->second);
-        }
-
-        return factory->createResource();
+        return resourceFactory->createResource();
 
     }
 
