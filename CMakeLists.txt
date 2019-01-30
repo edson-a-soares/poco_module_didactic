@@ -72,7 +72,7 @@ target_include_directories(${APPLICATION_BINARY} PUBLIC ${PROJECT_INCLUDE_DIR})
 option(ENABLE_TESTS "Set to OFF|ON (default: OFF) to control build of Application Tests" OFF)
 
 if (ENABLE_TESTS)
-    # add_subdirectory(tests)
+    add_subdirectory(tests)
     message(STATUS "Building with tests")
 elseif ()
     message(STATUS "Building without tests")

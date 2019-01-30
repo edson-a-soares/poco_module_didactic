@@ -8,7 +8,8 @@ namespace Resource {
         : corsConfiguration (nullptr)
     {}
 
-    void AbstractResource::handleRequest(Poco::Net::HTTPServerRequest & request, Poco::Net::HTTPServerResponse & response) {
+    void AbstractResource::handleRequest(Poco::Net::HTTPServerRequest & request, Poco::Net::HTTPServerResponse & response)
+    {
 
         configureCORS(response);
         response.setContentType("application/json; charset=utf-8");
