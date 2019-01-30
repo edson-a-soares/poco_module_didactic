@@ -40,7 +40,7 @@ namespace Application {
 		std::map<std::string, std::string> routingTable;
 
 		Poco::Net::HTTPRequestHandler * getResource(const std::string &);
-	    void addRoute(const std::string & route, const std::string & factory);
+		void addRoute(const std::string & route, const std::string & factory);
 
     };
 
