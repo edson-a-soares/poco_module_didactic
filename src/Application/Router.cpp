@@ -21,9 +21,9 @@ namespace Application {
     {
 
         Poco::URI uri        = Poco::URI(route);
-        auto factoryIndex    = routingTable.find(uri.getPath());
+        auto routeIndex      = routingTable.find(uri.getPath());
 
-        auto resourceFactory = Resource::Factory::AbstractFactory::createResourceFactory(factoryIndex->second);
+        auto resourceFactory = Resource::Factory::AbstractFactory::createResourceFactory(routeIndex->second);
         return resourceFactory->createResource();
 
     }

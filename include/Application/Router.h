@@ -37,10 +37,10 @@ namespace Application {
         Poco::Net::HTTPRequestHandler * createRequestHandler (const Poco::Net::HTTPServerRequest & request) override;
 
     private:
-		std::map<std::string, std::string> routingTable;
+        std::map<std::string, std::string> routingTable;
 
-		Poco::Net::HTTPRequestHandler * getResource(const std::string &);
-		void addRoute(const std::string & route, const std::string & factory);
+        void addRoute(const std::string & route, const std::string & factory);
+        Poco::Net::HTTPRequestHandler * getResource(const std::string & route);
 
     };
 
