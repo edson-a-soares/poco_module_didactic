@@ -20,16 +20,16 @@ namespace Resource {
         if ( request.getMethod() == Poco::Net::HTTPRequest::HTTP_PUT )
             this->handle_put(request, response);
 
-	    if ( request.getMethod() == Poco::Net::HTTPRequest::HTTP_POST )
+        if ( request.getMethod() == Poco::Net::HTTPRequest::HTTP_POST )
             this->handle_post(request, response);
 
-	    if ( request.getMethod() == Poco::Net::HTTPRequest::HTTP_HEAD )
+        if ( request.getMethod() == Poco::Net::HTTPRequest::HTTP_HEAD )
             this->handle_head(request, response);
 
-	    if ( request.getMethod() == Poco::Net::HTTPRequest::HTTP_TRACE )
+        if ( request.getMethod() == Poco::Net::HTTPRequest::HTTP_TRACE )
             this->handle_trace(request, response);
 
-	    if ( request.getMethod() == Poco::Net::HTTPRequest::HTTP_PATCH )
+        if ( request.getMethod() == Poco::Net::HTTPRequest::HTTP_PATCH )
             this->handle_patch(request, response);
 
         if ( request.getMethod() == Poco::Net::HTTPRequest::HTTP_DELETE )
@@ -51,8 +51,8 @@ namespace Resource {
     void AbstractResource::configureCORS(Poco::Net::HTTPServerResponse & response)
     {
 
-    	if ( corsConfiguration == nullptr )
-		    return;
+        if ( corsConfiguration == nullptr )
+            return;
 
         std::map<std::string, std::string> headerSet = corsConfiguration->getCORSHeaders();
         for ( auto & header : headerSet )
@@ -63,81 +63,81 @@ namespace Resource {
     void AbstractResource::handle_get(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse & response)
     {
 
-	    response.setStatusAndReason(Poco::Net::HTTPResponse::HTTP_NOT_IMPLEMENTED);
-	    std::ostream & outputStream = response.send();
-	    outputStream.flush();
+        response.setStatusAndReason(Poco::Net::HTTPResponse::HTTP_NOT_IMPLEMENTED);
+        std::ostream & outputStream = response.send();
+        outputStream.flush();
 
     }
 
     void AbstractResource::handle_put(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse & response)
     {
 
-	    response.setStatusAndReason(Poco::Net::HTTPResponse::HTTP_NOT_IMPLEMENTED);
-	    std::ostream & outputStream = response.send();
-	    outputStream.flush();
+        response.setStatusAndReason(Poco::Net::HTTPResponse::HTTP_NOT_IMPLEMENTED);
+        std::ostream & outputStream = response.send();
+        outputStream.flush();
 
     }
 
     void AbstractResource::handle_post(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse & response)
     {
 
-	    response.setStatusAndReason(Poco::Net::HTTPResponse::HTTP_NOT_IMPLEMENTED);
-	    std::ostream & outputStream = response.send();
-	    outputStream.flush();
+        response.setStatusAndReason(Poco::Net::HTTPResponse::HTTP_NOT_IMPLEMENTED);
+        std::ostream & outputStream = response.send();
+        outputStream.flush();
 
     }
 
     void AbstractResource::handle_head(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse & response)
     {
 
-	    response.setStatusAndReason(Poco::Net::HTTPResponse::HTTP_NOT_IMPLEMENTED);
-	    std::ostream & outputStream = response.send();
-	    outputStream.flush();
+        response.setStatusAndReason(Poco::Net::HTTPResponse::HTTP_NOT_IMPLEMENTED);
+        std::ostream & outputStream = response.send();
+        outputStream.flush();
 
     }
 
     void AbstractResource::handle_trace(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse & response)
     {
 
-	    response.setStatusAndReason(Poco::Net::HTTPResponse::HTTP_NOT_IMPLEMENTED);
-	    std::ostream & outputStream = response.send();
-	    outputStream.flush();
+        response.setStatusAndReason(Poco::Net::HTTPResponse::HTTP_NOT_IMPLEMENTED);
+        std::ostream & outputStream = response.send();
+        outputStream.flush();
 
     }
 
     void AbstractResource::handle_patch(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse & response)
     {
 
-	    response.setStatusAndReason(Poco::Net::HTTPResponse::HTTP_NOT_IMPLEMENTED);
-	    std::ostream & outputStream = response.send();
-	    outputStream.flush();
+        response.setStatusAndReason(Poco::Net::HTTPResponse::HTTP_NOT_IMPLEMENTED);
+        std::ostream & outputStream = response.send();
+        outputStream.flush();
 
     }
 
     void AbstractResource::handle_delete(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse & response)
     {
 
-	    response.setStatusAndReason(Poco::Net::HTTPResponse::HTTP_NOT_IMPLEMENTED);
-	    std::ostream & outputStream = response.send();
-	    outputStream.flush();
+        response.setStatusAndReason(Poco::Net::HTTPResponse::HTTP_NOT_IMPLEMENTED);
+        std::ostream & outputStream = response.send();
+        outputStream.flush();
 
     }
 
     void AbstractResource::handle_connect(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse & response)
     {
 
-	    response.setStatusAndReason(Poco::Net::HTTPResponse::HTTP_NOT_IMPLEMENTED);
-	    std::ostream & outputStream = response.send();
-	    outputStream.flush();
+        response.setStatusAndReason(Poco::Net::HTTPResponse::HTTP_NOT_IMPLEMENTED);
+        std::ostream & outputStream = response.send();
+        outputStream.flush();
 
     }
 
     void AbstractResource::handle_options(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse & response)
     {
 
-	    response.setStatusAndReason(Poco::Net::HTTPResponse::HTTP_NOT_IMPLEMENTED);
-	    std::ostream & outputStream = response.send();
-	    outputStream.flush();
+        response.setStatusAndReason(Poco::Net::HTTPResponse::HTTP_NOT_IMPLEMENTED);
+        std::ostream & outputStream = response.send();
+        outputStream.flush();
 
     }
 
