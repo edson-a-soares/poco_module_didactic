@@ -38,7 +38,7 @@ namespace Application {
     private:
         std::map<std::string, std::string> routingTable;
 
-	    std::string getRouteFactoryName(const std::string & fragment);
+	    std::string getRouteFactoryKey(const std::string & fragment);
 	    void addRoute(const std::string & fragment, const std::string & factory);
 
     };
