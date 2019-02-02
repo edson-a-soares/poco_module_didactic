@@ -14,8 +14,8 @@ namespace Application {
 
     Poco::Net::HTTPRequestHandler * Router::createRequestHandler(const Poco::Net::HTTPServerRequest & request)
     {
-	    auto factory = Resource::Factory::AbstractFactory::createResourceFactory(getRouteFactoryKey(request.getURI()));
-	    return factory->createResource();
+        auto factory = Resource::Factory::AbstractFactory::createResourceFactory(getRouteFactoryKey(request.getURI()));
+        return factory->createResource();
     }
 
     std::string Router::getRouteFactoryKey(const std::string & fragment)
@@ -29,9 +29,9 @@ namespace Application {
 
         auto routingTableRegister = routingTable.find(uri.getPath());
 	    routeFactoryKey = routingTableRegister->second;
-	    return routeFactoryKey;
+        return routeFactoryKey;
 
-	}
+    }
 
     void Router::addRoute(const std::string & fragment, const std::string & factory)
     {

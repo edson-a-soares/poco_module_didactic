@@ -18,19 +18,19 @@ namespace Resource {
             this->handle_get(request, response);
 
         if ( request.getMethod() == Poco::Net::HTTPRequest::HTTP_PUT )
-			this->handle_put(request, response);
+            this->handle_put(request, response);
 
 	    if ( request.getMethod() == Poco::Net::HTTPRequest::HTTP_POST )
-		    this->handle_post(request, response);
+            this->handle_post(request, response);
 
 	    if ( request.getMethod() == Poco::Net::HTTPRequest::HTTP_HEAD )
-		    this->handle_head(request, response);
+            this->handle_head(request, response);
 
 	    if ( request.getMethod() == Poco::Net::HTTPRequest::HTTP_TRACE )
-			this->handle_trace(request, response);
+            this->handle_trace(request, response);
 
 	    if ( request.getMethod() == Poco::Net::HTTPRequest::HTTP_PATCH )
-			this->handle_patch(request, response);
+            this->handle_patch(request, response);
 
         if ( request.getMethod() == Poco::Net::HTTPRequest::HTTP_DELETE )
             this->handle_delete(request, response);
