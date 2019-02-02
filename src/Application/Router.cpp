@@ -24,10 +24,10 @@ namespace Application {
     	std::string routeFactoryKey;
         Poco::URI uri = Poco::URI(fragment);
 
-		if ( routingTable.find(uri.getPath()) == routingTable.end() )
-			return routeFactoryKey;
+        if ( routingTable.find(uri.getPath()) == routingTable.end() )
+            return routeFactoryKey;
 
-		auto routingTableRegister = routingTable.find(uri.getPath());
+        auto routingTableRegister = routingTable.find(uri.getPath());
 	    routeFactoryKey = routingTableRegister->second;
 	    return routeFactoryKey;
 
