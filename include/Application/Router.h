@@ -33,14 +33,13 @@ namespace Application {
     {
     public:
         Router();
-
         Poco::Net::HTTPRequestHandler * createRequestHandler (const Poco::Net::HTTPServerRequest & request) override;
 
     private:
         std::map<std::string, std::string> routingTable;
 
-        void addRoute(const std::string & route, const std::string & factory);
-        Poco::Net::HTTPRequestHandler * getResource(const std::string & route);
+	    std::string getRouteFactoryName(const std::string & fragment);
+	    void addRoute(const std::string & fragment, const std::string & factory);
 
     };
 

@@ -15,7 +15,8 @@ namespace Factory {
         auto resource = new Resource::Application();
 
         auto corsConfiguration = std::make_shared<Configuration::WebCORSConfiguration>();
-        resource->setCORSConfiguration(corsConfiguration.get());
+        resource->setCORSConfiguration(corsConfiguration);
+
         return resource;
 
     }

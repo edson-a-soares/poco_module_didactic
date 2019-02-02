@@ -6,10 +6,6 @@ namespace Application {
 namespace Resource {
 
 
-    Application::Application()
-        : AbstractResource()
-    {}
-
     void Application::handle_get(Poco::Net::HTTPServerRequest & request, Poco::Net::HTTPServerResponse & response)
     {
 
@@ -21,6 +17,7 @@ namespace Resource {
             Poco::Environment::get("APPLICATION_VERSION"),
             Poco::Environment::get("APPLICATION_ENVIRONMENT")
         );
+
         outputStream.flush();
 
     }

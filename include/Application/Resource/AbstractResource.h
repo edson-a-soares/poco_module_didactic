@@ -20,6 +20,8 @@
 #ifndef Application_Resource_Abstract_Resource_INCLUDED
 #define Application_Resource_Abstract_Resource_INCLUDED
 
+#include <memory>
+
 #include "Poco/Net/HTTPServerRequest.h"
 #include "Poco/Net/HTTPServerResponse.h"
 #include "Poco/Net/HTTPRequestHandler.h"
@@ -33,10 +35,9 @@ namespace Resource {
     {
     public:
         AbstractResource();
-        ~AbstractResource() override;
 
-        void setCORSConfiguration(Configuration::CORSConfigurationInterface *);
-        void handleRequest(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse &) override;
+        void setCORSConfiguration(std::shared_ptr<Configuration::CORSConfigurationInterface>);
+        virtual void handleRequest(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse &);
 
     protected:
         void configureCORS(Poco::Net::HTTPServerResponse &);
@@ -44,11 +45,15 @@ namespace Resource {
         virtual void handle_get(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse &);
         virtual void handle_put(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse &);
         virtual void handle_post(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse &);
+	    virtual void handle_head(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse &);
+        virtual void handle_trace(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse &);
+        virtual void handle_patch(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse &);
         virtual void handle_delete(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse &);
+	    virtual void handle_connect(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse &);
         virtual void handle_options(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse &);
 
     private:
-        Configuration::CORSConfigurationInterface * corsConfiguration;
+	    std::shared_ptr<Configuration::CORSConfigurationInterface> corsConfiguration;
 
     };
 

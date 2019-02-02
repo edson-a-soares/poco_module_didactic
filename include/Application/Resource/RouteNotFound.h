@@ -29,8 +29,6 @@ namespace Resource {
     class RouteNotFound : public AbstractResource
     {
     public:
-        RouteNotFound();
-
         void handleRequest(Poco::Net::HTTPServerRequest & request, Poco::Net::HTTPServerResponse & response) override;
 
     };

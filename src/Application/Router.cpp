@@ -14,23 +14,28 @@ namespace Application {
 
     Poco::Net::HTTPRequestHandler * Router::createRequestHandler(const Poco::Net::HTTPServerRequest & request)
     {
-        return getResource(request.getURI());
+	    auto factory = Resource::Factory::AbstractFactory::createResourceFactory(getRouteFactoryName(request.getURI()));
+	    return factory->createResource();
     }
 
-    Poco::Net::HTTPRequestHandler * Router::getResource(const std::string & route)
+	std::string Router::getRouteFactoryName(const std::string & fragment)
+	{
+
+		std::string route;
+		Poco::URI uri = Poco::URI(fragment);
+
+		if ( routingTable.find(uri.getPath()) != routingTable.end() ) {
+			auto routeIndex = routingTable.find(uri.getPath());
+			route = routeIndex->second;
+		}
+
+		return route;
+
+	}
+
+    void Router::addRoute(const std::string & fragment, const std::string & factory)
     {
-
-        Poco::URI uri        = Poco::URI(route);
-        auto routeIndex      = routingTable.find(uri.getPath());
-
-        auto resourceFactory = Resource::Factory::AbstractFactory::createResourceFactory(routeIndex->second);
-        return resourceFactory->createResource();
-
-    }
-
-    void Router::addRoute(const std::string & route, const std::string & factory)
-    {
-        routingTable[route] = factory;
+        routingTable[fragment] = factory;
     }
 
 

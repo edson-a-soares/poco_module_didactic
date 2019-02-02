@@ -33,10 +33,10 @@ namespace Handling {
         explicit ErrorJSONParser(const std::string &);
 
         std::string toJson(
-            const std::string &,
-            const std::string &,
-            const std::string &,
-            const std::string &
+            const std::string & code,
+            const std::string & pointer,
+            const std::string & type,
+            const std::string & description
         );
 
     private:

@@ -28,9 +28,6 @@ namespace Resource {
 
     class Application : public AbstractResource
     {
-    public:
-        Application();
-
     protected:
         void handle_get(Poco::Net::HTTPServerRequest &, Poco::Net::HTTPServerResponse &) override;
 
